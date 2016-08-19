@@ -97,8 +97,7 @@ class CephDisk:
         return "".join(lines)
 
     def unused_disks(self, pattern='[vs]d.'):
-        names = filter(
-            lambda x: re.match(pattern, x), os.listdir("/sys/block"))
+        names = [x for x in os.listdir("/sys/block") if re.match(pattern, x)]
         if not names:
             return []
         disks = json.loads(
