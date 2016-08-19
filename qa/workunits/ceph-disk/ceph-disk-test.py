@@ -64,7 +64,7 @@ class CephDisk:
         self.conf = configobj.ConfigObj('/etc/ceph/ceph.conf')
 
     def save_conf(self):
-        self.conf.write(open('/etc/ceph/ceph.conf', 'w'))
+        self.conf.write(open('/etc/ceph/ceph.conf', 'wb'))
 
     @staticmethod
     def helper(command):
